@@ -36,6 +36,15 @@ def get_user_id(username):
     conn.close()
     return user_id[0] if user_id else None
 
+def get_password(username):
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute("SELECT password FROM users WHERE username=?", (username,))
+    user_id = cursor.fetchone()
+    conn.close()
+    return user_id[0] if user_id else None
+
+
 def calculate_total_duration(user_id):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
@@ -51,11 +60,17 @@ def login():
         password = request.form['password']
 
         user_id = get_user_id(username)
+        password_check = get_password(username)
 
         if user_id is not None:
-            return redirect(url_for('dashboard', user_id=user_id))
+            if password == password_check:
+                return redirect(url_for('dashboard', user_id=user_id))
+            else:
+                flash('Incorrect Password. Please try again.', 'error')
         else:
             flash('Invalid credentials. Please try again.', 'error')
+
+        
 
     return render_template('login.html')
 
