@@ -3,7 +3,7 @@ The project just represents the Web interface for a application which has Python
 
 To reproduce this code on your machine 
 1. Install Python or use Anaconda environment
-2. Install flask,pydub using pip install Flask, pip install pydub
+2. Install flask,pydub using requirements.text using command 'pip install -r requirements.txt'
 3. You might need to install ffmpeg using "brew install ffmpeg" (on mac). For windows check this website [https://ffmpeg.org/download.html](url)
 4. Download the whole github repo and keep the folder structure same
 5. Open terminal and run app.py using command "python app.py"
