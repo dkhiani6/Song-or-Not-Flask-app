@@ -1,0 +1,27 @@
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+thead th {
+  width: 25%;
+}
+button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+input {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
